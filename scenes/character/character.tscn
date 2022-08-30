@@ -1,9 +1,13 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/character/idle.png" type="Texture" id=1]
 [ext_resource path="res://assets/character/walk.png" type="Texture" id=2]
 [ext_resource path="res://scripts/character/character.gd" type="Script" id=3]
 [ext_resource path="res://assets/character/attack.png" type="Texture" id=4]
+[ext_resource path="res://scripts/character/move.gd" type="Script" id=5]
+[ext_resource path="res://scripts/character/state.gd" type="Script" id=6]
+[ext_resource path="res://scripts/character/attack.gd" type="Script" id=7]
+[ext_resource path="res://scripts/character/character_texture.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -939,12 +943,11 @@ start_node = "idle"
 
 [node name="Character" type="KinematicBody2D"]
 script = ExtResource( 3 )
-move_speed = 48
-attack_cooldown = 0.4
 
 [node name="Texture" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 vframes = 4
+script = ExtResource( 8 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
@@ -972,7 +975,20 @@ parameters/attack/blend_position = Vector2( 0, 0 )
 parameters/idle/blend_position = Vector2( 0, 0 )
 parameters/walk/blend_position = Vector2( 0, 0 )
 
-[node name="AttackTimer" type="Timer" parent="."]
+[node name="State" type="Node" parent="."]
+script = ExtResource( 6 )
+character = NodePath("..")
+animation_tree = NodePath("../AnimationTree")
+
+[node name="Move" type="Node" parent="State"]
+script = ExtResource( 5 )
+move_speed = 48
+
+[node name="Attack" type="Node" parent="State"]
+script = ExtResource( 7 )
+attack_cooldown = 0.4
+
+[node name="AttackTimer" type="Timer" parent="State/Attack"]
 one_shot = true
 
-[connection signal="timeout" from="AttackTimer" to="." method="on_attack_timer_timeout"]
+[connection signal="timeout" from="State/Attack/AttackTimer" to="State/Attack" method="on_attack_timer_timeout"]

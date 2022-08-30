@@ -4,74 +4,26 @@ class_name Character
 onready var animation_tree: AnimationTree = get_node("AnimationTree")
 onready var animation_state = animation_tree.get("parameters/playback")
 
-onready var attack_timer: Timer = get_node("AttackTimer")
+onready var character_texture: Sprite = get_node("Texture")
+
+onready var state: Node = get_node("State")
+onready var move_state: Node = state.get_node("Move")
+onready var attack_state: Node = state.get_node("Attack")
 
 var on_action: bool = false
-
-var velocity: Vector2
 var current_action: String = ""
 
-export(int) var move_speed
-export(float) var attack_cooldown
-
 func _physics_process(_delta: float) -> void:
-	move()
-	attack()
-	animate()
+	move_state.velocity = move_and_slide(move_state.move())
+	attack_state.attack()
+	character_texture.animate(move_state.velocity)
 	
 	
-func move() -> void:
-	var direction: Vector2 = get_direction()
-	if direction != Vector2.ZERO:
-		animation_tree.set("parameters/idle/blend_position", direction)
-		animation_tree.set("parameters/walk/blend_position", direction)
-		animation_tree.set("parameters/attack/blend_position", direction)
-		
-		
-	velocity = direction * move_speed
-	velocity = move_and_slide(velocity)
+func change_action_state(type: String, action_state: bool) -> void:
+	on_action = action_state
+	current_action = type
+	sleep(action_state)
 	
 	
-func get_direction() -> Vector2:
-	return Vector2(
-		Input.get_axis("ui_left", "ui_right"),
-		Input.get_axis("ui_up", "ui_down")
-	).normalized()
-	
-	
-func attack() -> void:
-	if Input.is_action_just_pressed("ui_left_click") and not on_action:
-		attack_timer.start(attack_cooldown)
-		current_action = "attack"
-		on_action = true
-		sleep(true)
-		
-		
-func animate() -> void:
-	if on_action:
-		action_behavior()
-		return
-		
-	move_behavior()
-	
-	
-func action_behavior() -> void:
-	animation_state.travel(current_action)
-	
-	
-func move_behavior() -> void:
-	if velocity != Vector2.ZERO:
-		animation_state.travel("walk")
-		return
-		
-	animation_state.travel("idle")
-	
-	
-func on_attack_timer_timeout() -> void:
-	sleep(false)
-	on_action = false
-	current_action = ""
-	
-	
-func sleep(state: bool) -> void:
-	set_physics_process(not state)
+func sleep(sleep_state: bool) -> void:
+	set_physics_process(not sleep_state)

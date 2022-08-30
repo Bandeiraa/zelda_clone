@@ -9,13 +9,37 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "AttackState",
+"language": "GDScript",
+"path": "res://scripts/character/attack.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
 "path": "res://scripts/character/character.gd"
+}, {
+"base": "Sprite",
+"class": "CharacterTexture",
+"language": "GDScript",
+"path": "res://scripts/character/character_texture.gd"
+}, {
+"base": "Node",
+"class": "MoveState",
+"language": "GDScript",
+"path": "res://scripts/character/move.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://scripts/character/state.gd"
 } ]
 _global_script_class_icons={
-"Character": ""
+"AttackState": "",
+"Character": "",
+"CharacterTexture": "",
+"MoveState": "",
+"State": ""
 }
 
 [application]
