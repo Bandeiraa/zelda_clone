@@ -9,4 +9,4 @@ func on_body_entered(body) -> void:
 		
 		
 func interact(body: Character) -> void:
-	body.global_position = house_travel_position
+	get_tree().call_group("transition", "make_transition", body, house_travel_position)

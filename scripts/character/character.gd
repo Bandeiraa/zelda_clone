@@ -52,6 +52,9 @@ func change_action_state(type: String, action_state: bool) -> void:
 	
 	
 func sleep(sleep_state: bool) -> void:
+	if current_action == "":
+		animation_state.travel("idle")
+		
 	set_physics_process(not sleep_state)
 	
 	

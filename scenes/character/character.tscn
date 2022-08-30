@@ -1170,6 +1170,7 @@ extents = Vector2( 5, 5 )
 extents = Vector2( 6, 2.5 )
 
 [node name="Character" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 3 )
 
 [node name="Texture" type="Sprite" parent="."]
@@ -1209,7 +1210,7 @@ parameters/walk/blend_position = Vector2( 0, 0 )
 [node name="Stats" type="Node" parent="."]
 script = ExtResource( 10 )
 health = 10
-move_speed = 48
+move_speed = 64
 attack_damage = 1
 attack_cooldown = 0.4
 knockback_lifetime = 0.2
@@ -1236,12 +1237,16 @@ script = ExtResource( 7 )
 one_shot = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 9 )]
+collision_layer = 2
+collision_mask = 4
 
 [node name="Collision" parent="Hurtbox" index="0"]
 shape = SubResource( 38 )
 disabled = true
 
 [node name="Hitbox" parent="." instance=ExtResource( 11 )]
+collision_layer = 0
+collision_mask = 4
 knockback_receiver = NodePath("../States/Move")
 
 [node name="Collision" parent="Hitbox" index="0"]
