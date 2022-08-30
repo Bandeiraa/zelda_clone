@@ -5,7 +5,7 @@ onready var attack_timer: Timer = get_node("AttackTimer")
 
 var parent: Node = null
 
-export(float) var attack_cooldown
+var attack_cooldown: float
 
 func attack() -> void:
 	if Input.is_action_just_pressed("ui_left_click") and not parent.character.on_action:

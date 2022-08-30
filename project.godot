@@ -12,12 +12,17 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "AttackState",
 "language": "GDScript",
-"path": "res://scripts/character/attack.gd"
+"path": "res://scripts/character/states/attack.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
 "path": "res://scripts/character/character.gd"
+}, {
+"base": "Node",
+"class": "CharacterStats",
+"language": "GDScript",
+"path": "res://scripts/character/stats.gd"
 }, {
 "base": "Sprite",
 "class": "CharacterTexture",
@@ -32,20 +37,21 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "MoveState",
 "language": "GDScript",
-"path": "res://scripts/character/move.gd"
+"path": "res://scripts/character/states/move.gd"
 }, {
 "base": "Node",
-"class": "State",
+"class": "States",
 "language": "GDScript",
-"path": "res://scripts/character/state.gd"
+"path": "res://scripts/character/states/states.gd"
 } ]
 _global_script_class_icons={
 "AttackState": "",
 "Character": "",
+"CharacterStats": "",
 "CharacterTexture": "",
 "Hurtbox": "",
 "MoveState": "",
-"State": ""
+"States": ""
 }
 
 [application]

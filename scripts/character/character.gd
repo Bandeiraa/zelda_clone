@@ -6,9 +6,9 @@ onready var animation_state = animation_tree.get("parameters/playback")
 
 onready var character_texture: Sprite = get_node("Texture")
 
-onready var state: Node = get_node("State")
-onready var move_state: Node = state.get_node("Move")
-onready var attack_state: Node = state.get_node("Attack")
+onready var states: Node = get_node("States")
+onready var move_state: Node = states.get_node("Move")
+onready var attack_state: Node = states.get_node("Attack")
 
 var on_action: bool = false
 var current_action: String = ""

@@ -4,7 +4,7 @@ class_name MoveState
 var velocity: Vector2
 var parent: Node = null
 
-export(int) var move_speed
+var move_speed: int
 
 func move() -> Vector2:
 	var direction: Vector2 = get_direction()
