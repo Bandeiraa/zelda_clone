@@ -1,7 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
-
-[sub_resource type="Shader" id=40]
-code = "shader_type canvas_item;
+shader_type canvas_item;
 
 uniform bool on_hit = false;
 uniform bool on_kill = false;
@@ -50,13 +47,4 @@ void fragment() {
 	}
 	
 	COLOR = texture_color;
-}"
-
-[resource]
-shader = SubResource( 40 )
-shader_param/on_hit = false
-shader_param/on_kill = true
-shader_param/progress = 0.0
-shader_param/noise_desnity = 60.0
-shader_param/beam_size = 0.01
-shader_param/color = Color( 0, 1.02, 1.2, 1 )
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://assets/character/idle.png" type="Texture" id=1]
 [ext_resource path="res://assets/character/walk.png" type="Texture" id=2]
@@ -7,16 +7,51 @@
 [ext_resource path="res://scripts/character/states/move.gd" type="Script" id=5]
 [ext_resource path="res://scripts/character/states/states.gd" type="Script" id=6]
 [ext_resource path="res://scripts/character/states/attack.gd" type="Script" id=7]
-[ext_resource path="res://scripts/character/character_texture.gd" type="Script" id=8]
+[ext_resource path="res://resources/shader/hit_and_death.gdshader" type="Shader" id=8]
 [ext_resource path="res://scenes/combat/hurtbox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scripts/character/stats.gd" type="Script" id=10]
 [ext_resource path="res://scenes/combat/hitbox.tscn" type="PackedScene" id=11]
-[ext_resource path="res://resources/shader/hit_effect_material.tres" type="Material" id=12]
+
+[sub_resource type="ShaderMaterial" id=40]
+shader = ExtResource( 8 )
+shader_param/on_hit = false
+shader_param/on_kill = false
+shader_param/progress = 0.0
+shader_param/noise_desnity = 60.0
+shader_param/beam_size = 0.01
+shader_param/color = Color( 0, 1.02, 1.2, 1 )
+
+[sub_resource type="GDScript" id=41]
+script/source = "extends Sprite
+class_name CharacterTexture
+
+onready var parent: KinematicBody2D = get_parent()
+onready var texture_material = get_material()
+
+func animate(velocity: Vector2) -> void:
+	if parent.on_action:
+		action_behavior()
+		return
+		
+	move_behavior(velocity)
+	
+	
+func action_behavior() -> void:
+	parent.animation_state.travel(parent.current_action)
+	
+	
+func move_behavior(velocity: Vector2) -> void:
+	if velocity != Vector2.ZERO:
+		parent.animation_state.travel(\"walk\")
+		return
+		
+	parent.animation_state.travel(\"idle\")
+"
 
 [sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 6, 2.5 )
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=42]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Texture:texture")
@@ -1138,10 +1173,10 @@ extents = Vector2( 6, 2.5 )
 script = ExtResource( 3 )
 
 [node name="Texture" type="Sprite" parent="."]
-material = ExtResource( 12 )
+material = SubResource( 40 )
 texture = ExtResource( 1 )
 vframes = 4
-script = ExtResource( 8 )
+script = SubResource( 41 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 visible = false
@@ -1149,7 +1184,7 @@ position = Vector2( 0, 9.5 )
 shape = SubResource( 37 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 1 )
+anims/RESET = SubResource( 42 )
 anims/attack_d = SubResource( 24 )
 anims/attack_l = SubResource( 27 )
 anims/attack_r = SubResource( 26 )
