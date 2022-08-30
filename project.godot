@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/combat/hurtbox.gd"
 }, {
+"base": "Area2D",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://scripts/interactable/interactable.gd"
+}, {
 "base": "Node",
 "class": "MoveState",
 "language": "GDScript",
@@ -62,6 +67,7 @@ _global_script_class_icons={
 "GameLevel": "",
 "Hitbox": "",
 "Hurtbox": "",
+"Interactable": "",
 "MoveState": "",
 "States": ""
 }
@@ -123,4 +129,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
