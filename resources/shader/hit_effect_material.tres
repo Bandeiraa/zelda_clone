@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=40]
+code = "shader_type canvas_item;
+
+uniform bool on_hit = false;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	if (on_hit) {
+		color.rgb = vec3(1.0, 1.0, 1.0);
+	}
+	
+	COLOR = color;
+}"
+
+[resource]
+shader = SubResource( 40 )
+shader_param/on_hit = false

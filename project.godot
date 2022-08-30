@@ -63,6 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Zelda Clone"
+run/main_scene="res://scenes/management/game_level.tscn"
 config/icon="res://icon.png"
 
 [display]

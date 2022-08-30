@@ -2,6 +2,7 @@ extends Sprite
 class_name CharacterTexture
 
 onready var parent: KinematicBody2D = get_parent()
+onready var texture_material = get_material()
 
 func animate(velocity: Vector2) -> void:
 	if parent.on_action:
