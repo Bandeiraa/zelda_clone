@@ -1166,7 +1166,6 @@ anims/walk_u = SubResource( 8 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 22 )
 anim_player = NodePath("../Animation")
-active = true
 parameters/playback = SubResource( 23 )
 parameters/attack/blend_position = Vector2( 0, 0 )
 parameters/idle/blend_position = Vector2( 0, 0 )
@@ -1216,6 +1215,8 @@ shape = SubResource( 39 )
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
+
+[node name="KillTween" type="Tween" parent="."]
 
 [connection signal="timeout" from="States/Move/KnockbackTimer" to="States/Move" method="on_knockback_timer_timeout"]
 [connection signal="timeout" from="States/Attack/AttackTimer" to="States/Attack" method="on_attack_timer_timeout"]
