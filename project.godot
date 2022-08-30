@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://scripts/character/character_texture.gd"
 }, {
 "base": "Area2D",
+"class": "Hitbox",
+"language": "GDScript",
+"path": "res://scripts/combat/hitbox.gd"
+}, {
+"base": "Area2D",
 "class": "Hurtbox",
 "language": "GDScript",
 "path": "res://scripts/combat/hurtbox.gd"
@@ -49,6 +54,7 @@ _global_script_class_icons={
 "Character": "",
 "CharacterStats": "",
 "CharacterTexture": "",
+"Hitbox": "",
 "Hurtbox": "",
 "MoveState": "",
 "States": ""

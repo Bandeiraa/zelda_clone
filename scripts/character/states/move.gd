@@ -1,10 +1,15 @@
 extends Node
 class_name MoveState
 
+onready var knockback_timer: Timer = get_node("KnockbackTimer")
+
 var velocity: Vector2
+var knockback_velocity: Vector2
+
 var parent: Node = null
 
 var move_speed: int
+var knockback_lifetime: bool
 
 func move() -> Vector2:
 	var direction: Vector2 = get_direction()
@@ -22,3 +27,19 @@ func get_direction() -> Vector2:
 		Input.get_axis("ui_left", "ui_right"),
 		Input.get_axis("ui_up", "ui_down")
 	).normalized()
+	
+	
+func apply_knockback(target_position: Vector2) -> void:
+	var direction: Vector2 = target_position.direction_to(parent.character.global_position).normalized()
+	parent.character.change_action_state("hit", true)
+	knockback_velocity = direction * (move_speed * 2)
+	knockback_timer.start(knockback_lifetime)
+	
+	
+func knockback() -> Vector2:
+	return -knockback_velocity
+	
+	
+func on_knockback_timer_timeout() -> void:
+	knockback_velocity = Vector2.ZERO
+	parent.character.change_action_state("hit", false)
