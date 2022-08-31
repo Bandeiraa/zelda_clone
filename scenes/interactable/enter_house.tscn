@@ -3,3 +3,5 @@
 [ext_resource path="res://scenes/interactable/interactable.tscn" type="PackedScene" id=1]
 
 [node name="EnterHouse" instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 2
