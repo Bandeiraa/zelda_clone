@@ -1,16 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scenes/character/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/tile/house.tres" type="TileSet" id=2]
 [ext_resource path="res://scripts/management/game_level.gd" type="Script" id=3]
 [ext_resource path="res://resources/tile/grass.tres" type="TileSet" id=4]
 [ext_resource path="res://resources/tile/rock.tres" type="TileSet" id=5]
-[ext_resource path="res://assets/tile/decoration.png" type="Texture" id=6]
+[ext_resource path="res://resources/tile/decoration.tres" type="TileSet" id=6]
 [ext_resource path="res://scenes/interactable/enter_house.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/management/transition_screen.tscn" type="PackedScene" id=8]
-
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
+[ext_resource path="res://assets/tile/hill.png" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -21,51 +19,75 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="TileSet" id=2]
-0/name = "house"
-0/texture = ExtResource( 6 )
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 16, 16, 14, 16, 14, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 16, 16, 14, 16, 14, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 16, 16, 14, 16, 14, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+points = PoolVector2Array( 2, 16, 0, 16, 0, 0, 2, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 2, 16, 0, 16, 0, 0, 2, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 2, 16, 0, 16, 0, 0, 2, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 14, 16, 14 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 14, 16, 0, 16, 0, 14, 14, 14 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+points = PoolVector2Array( 16, 16, 2, 16, 2, 14, 16, 14 )
+
+[sub_resource type="TileSet" id=13]
+0/name = "base"
+0/texture = ExtResource( 9 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 80, 80 )
-0/tile_mode = 0
+0/region = Rect2( 0, 48, 48, 48 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 438, Vector2( 0, 2 ), 54, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 63, Vector2( 2, 0 ), 216, Vector2( 2, 1 ), 219, Vector2( 2, 2 ), 27 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
+0/shape = SubResource( 4 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-1/name = "log"
-1/texture = ExtResource( 6 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 112, 144, 48, 16 )
-1/tile_mode = 1
-1/autotile/bitmask_mode = 1
-1/autotile/bitmask_flags = [ Vector2( 0, 0 ), 48, Vector2( 1, 0 ), 56, Vector2( 2, 0 ), 24 ]
-1/autotile/icon_coordinate = Vector2( 1, 0 )
-1/autotile/tile_size = Vector2( 16, 16 )
-1/autotile/spacing = 0
-1/autotile/occluder_map = [  ]
-1/autotile/navpoly_map = [  ]
-1/autotile/priority_map = [  ]
-1/autotile/z_index_map = [  ]
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 4 )
-1/shape_one_way = false
-1/shape_one_way_margin = 1.0
-1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
@@ -82,6 +104,120 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "hill"
+1/texture = ExtResource( 9 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 48, 48 )
+1/tile_mode = 1
+1/autotile/bitmask_mode = 1
+1/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 438, Vector2( 0, 2 ), 54, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 63, Vector2( 2, 0 ), 216, Vector2( 2, 1 ), 219, Vector2( 2, 2 ), 27 ]
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 16, 16 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 14 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 22 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -139,11 +275,17 @@ format = 1
 tile_data = PoolIntArray( 65554, 4, 0, 131074, 3, 0, 131081, 1, 0, 393233, 0, 0, 589826, 4, 0, 589835, 1, 0 )
 
 [node name="Decoration" type="TileMap" parent="Map/Overworld"]
-tile_set = SubResource( 2 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 16, 16 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 11, 0, 0, 393217, 1, 0, 393218, 1, 1, 393219, 1, 2 )
+tile_data = PoolIntArray( 3, 2, 0, 11, 0, 0, 196618, 3, 131072, 196624, 3, 131072, 262154, 3, 131075, 262160, 3, 131075, 327690, 3, 196609, 327691, 3, 65539, 327695, 3, 65537, 327696, 3, 196611, 393217, 1, 0, 393218, 1, 1, 393219, 1, 2, 393227, 3, 131073, 393231, 3, 131075, 458763, 3, 196608, 458767, 3, 196608, 589837, 2, 0 )
+
+[node name="Hill" type="TileMap" parent="Map/Overworld"]
+tile_set = SubResource( 13 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 524284, 1, 0, 524285, 1, 1, 524286, 1, 1, 524287, 1, 1, 458752, 1, 2, 589820, 1, 65536, 589821, 1, 65537, 589822, 1, 65537, 589823, 1, 65537, 524288, 1, 65538, 655356, 1, 65536, 655357, 1, 65537, 655358, 1, 65537, 655359, 1, 65537, 589824, 1, 65538, 720892, 1, 131072, 720893, 1, 131073, 720894, 1, 131073, 720895, 1, 131073, 655360, 1, 131074, 786428, 0, 0, 786429, 0, 1, 786430, 0, 1, 786431, 0, 1, 720896, 0, 2, 851964, 0, 131072, 851965, 0, 131073, 851966, 0, 131073, 851967, 0, 131073, 786432, 0, 131074 )
 
 [node name="Notifier2D" type="VisibilityNotifier2D" parent="Map/Overworld" groups=["chunk_notifier"]]
 visible = false
